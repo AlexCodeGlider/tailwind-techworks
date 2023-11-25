@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import FilmDataScience from "../assets/images/portfolio/film_data_science.png";
 import GliderPlanner from "../assets/images/portfolio/glider_planner.jpg";
 import DataScience from "../assets/images/portfolio/data_science.png";
-import Video from "../assets/images/portfolio/video-1920-1080.jpg";
+import OfficeTeam from "../assets/images/portfolio/office_team.png";
 import videomp4 from "../assets/videos/creative-branding-studio.mp4";
 import { Card, CardBody, Col, Container, Row } from "reactstrap";
 const CreativeAgency = () => {
@@ -324,13 +324,10 @@ const CreativeAgency = () => {
             </Row>
             <NavLink
               className="gallery-item gallery-item-sm mt-160 mb-60"
-              to="/https://www.youtube.com/watch?v=AT6oSIDbGkw"
+              to="/about-us-2"
               data-fancybox
             >
-              <img src={Video} alt="" data-aos="fade" />
-              <span className="d-flex d-md-none btn btn-md btn-circle btn-white">
-                play
-              </span>
+              <img src={OfficeTeam} alt="" data-aos="fade" />
             </NavLink>
             <div className="pt-30 mt-n10">
               <Row className="align-items-center justify-content-between text-center gh-1 gv-3">

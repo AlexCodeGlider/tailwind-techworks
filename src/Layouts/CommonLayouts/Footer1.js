@@ -27,8 +27,8 @@ const Footer = () => {
                 <img width="184" src={Logo} alt="" />
               </NavLink>
               <p className="mb-0">
-                Be saying moveth spirit fruitful called set evening fly give
-                shall moveth lesser very.
+                We are a team of designers and developers that create high
+                quality machine learning workflows.
               </p>
             </Col>
             <div className="d-none d-lg-block col-2"></div>
