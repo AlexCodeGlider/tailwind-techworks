@@ -2,9 +2,9 @@ import React from "react";
 import Footer from "../Layouts/CommonLayouts/Footer1";
 import Navbar from "../Layouts/CommonLayouts/Navbar4";
 import { NavLink } from "react-router-dom";
-import FunnyDog from "../assets/images/portfolio/funny-dog-1200-865.jpg";
-import Creative from "../assets/images/portfolio/creative-branding-1200-865.jpg";
-import Identity from "../assets/images/portfolio/identity-design-1200-865.jpg";
+import FilmDataScience from "../assets/images/portfolio/film_data_science.png";
+import GliderPlanner from "../assets/images/portfolio/glider_planner.jpg";
+import DataScience from "../assets/images/portfolio/data_science.png";
 import Video from "../assets/images/portfolio/video-1920-1080.jpg";
 import videomp4 from "../assets/videos/creative-branding-studio.mp4";
 import { Card, CardBody, Col, Container, Row } from "reactstrap";
@@ -84,21 +84,21 @@ const CreativeAgency = () => {
               >
                 <Card className="card card-portfolio card-horizontal card-image-md card-hover-frame text-white">
                   <NavLink to="/#" className="card-category subtitle">
-                    photography
+                    Entertainment
                   </NavLink>
                   <NavLink to="/portfolio-single-style-4" className="card-img">
-                    <img src={FunnyDog} alt="" data-aos="fade" />
+                    <img src={FilmDataScience} alt="" data-aos="fade" />
                   </NavLink>
                   <CardBody className="card-body">
                     <NavLink
                       to="/portfolio-single-style-4"
                       className="card-title h2"
                     >
-                      Funny Dog
+                      Film & TV Streaming Predictions
                     </NavLink>
                     <div className="card-text">
-                      Second be seed gathering our you&#39;re one open have
-                      NavLink morning greater their.
+                      You're a stake holder in film and TV investments and you want to know what your
+                      return on investment will be. We can help you predict the success of your film or TV show.
                     </div>
                     <NavLink
                       to="/portfolio-single-style-4"
@@ -139,21 +139,20 @@ const CreativeAgency = () => {
               >
                 <div className="card card-portfolio card-horizontal card-swap card-image-md card-hover-frame text-white">
                   <NavLink to="/#" className="card-category subtitle">
-                    branding
+                    Aviation
                   </NavLink>
                   <NavLink to="/portfolio-single-style-5" className="card-img">
-                    <img src={Creative} alt="" data-aos="fade" />
+                    <img src={GliderPlanner} alt="" data-aos="fade" />
                   </NavLink>
                   <div className="card-body">
                     <NavLink
                       to="/portfolio-single-style-5"
                       className="card-title h2"
                     >
-                      Creative Branding
+                      Aviation Tools
                     </NavLink>
                     <div className="card-text">
-                      Above living made whose divide brought over fly midst
-                      signs is third their.
+                      You're a glider pilot and you want to plan your flight according to the today's weather conditions.
                     </div>
                     <NavLink
                       to="/portfolio-single-style-5"
@@ -194,21 +193,21 @@ const CreativeAgency = () => {
               >
                 <Card className="card card-portfolio card-horizontal card-image-md card-hover-frame text-white">
                   <NavLink to="/#" className="card-category subtitle">
-                    marketing
+                    Data Science
                   </NavLink>
                   <NavLink to="/portfolio-single-style-2" className="card-img">
-                    <img src={Identity} alt="" data-aos="fade" />
+                    <img src={DataScience} alt="" data-aos="fade" />
                   </NavLink>
                   <CardBody className="card-body">
                     <NavLink
                       to="/portfolio-single-style-2"
                       className="card-title h2"
                     >
-                      Identity Design
+                      Advanced Data Analysis
                     </NavLink>
                     <div className="card-text">
-                      Male let likeness day. Be from called signs light form let
-                      multiply air darkness.
+                      You have a lot of data and you want to know what it means. We can help you analyze your data and
+                      provide you with actionable insights.
                     </div>
                     <NavLink
                       to="/portfolio-single-style-2"
@@ -279,7 +278,7 @@ const CreativeAgency = () => {
                 data-show-duration="900"
               >
                 <div className="subtitle mt-n10">who we are</div>
-                <h2 className="h3">We've worked with 50+ brands</h2>
+                <h2 className="h3">A team of data scientists, machine learning experts, and techies dedicated to transforming the way businesses interact with data.</h2>
                 <NavLink
                   to="/about-us-2"
                   className="btn btn-dark btn-with-ball mt-30"
@@ -295,20 +294,17 @@ const CreativeAgency = () => {
                 data-show-duration="900"
               >
                 <p className="lead fw-normal mt-n7 mb-30">
-                  Over 10 years of combined experience, and know thing or two
-                  about.
+                  Over 10 years of combined experience.
                 </p>
                 <p>
-                  Won't seasons, appear days them stars replenish divided. All
-                  second forth. Him place was seas man and gathering creepeth
-                  called fly. Them sea place lights, midst bearing fourth above.
+                  Our mission is to empower enterprises by integrating cutting-edge data science and machine learning technologies into their core processes.
                 </p>
                 <hr />
                 <Row className="gh-2 gv-2 justify-content-around justify-content-sm-center text-center text-sm-start">
                   <Col sm={4} className="col-auto">
                     <div className="number-box">
-                      <div className="number-box-title h2">106</div>
-                      <div className="number-box-subtitle">projects</div>
+                      <div className="number-box-title h2">16</div>
+                      <div className="number-box-subtitle">active projects</div>
                     </div>
                   </Col>
                   <Col sm={4} className="col-auto">
