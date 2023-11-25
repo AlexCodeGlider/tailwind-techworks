@@ -34,7 +34,7 @@ const Footer = () => {
             <div className="d-none d-lg-block col-2"></div>
             <Col lg={6}>
               <p className="subtitle mb-30 text-muted">
-                subscribe to our newsletter
+                contact us for more information
               </p>
               <form action="#">
                 <div className="form-group-overlay">
@@ -59,16 +59,11 @@ const Footer = () => {
             <Col lg={3}>
               <ul className="nav flex-column text-white">
                 <li className="nav-item">
-                  <NavLink to="callto:+1 202-358-0309" className="nav-link">
-                    +1 202-358-0309
-                  </NavLink>
-                </li>
-                <li className="nav-item">
                   <NavLink
-                    to="mailto:hello@themebau.com?subject=Test%20Address%20Email"
+                    to="mailto:hello@tailwind-techworks.com?subject=Homepage%20Contact"
                     className="nav-link"
                   >
-                    hello@themebau.com
+                    hello@tailwind-techworks.com
                   </NavLink>
                 </li>
               </ul>
@@ -88,16 +83,6 @@ const Footer = () => {
                         Services
                       </NavLink>
                     </li>
-                    <li className="nav-item">
-                      <NavLink to="/#" className="nav-link">
-                        Our team
-                      </NavLink>
-                    </li>
-                    <li className="nav-item">
-                      <NavLink to="/#" className="nav-link">
-                        Careers
-                      </NavLink>
-                    </li>
                   </ul>
                 </Col>
                 <Col lg={4} className="col-12">
@@ -110,16 +95,6 @@ const Footer = () => {
                     <li className="nav-item">
                       <NavLink to="/#" className="nav-link">
                         FAQ
-                      </NavLink>
-                    </li>
-                    <li className="nav-item">
-                      <NavLink to="/#" className="nav-link">
-                        Our blog
-                      </NavLink>
-                    </li>
-                    <li className="nav-item">
-                      <NavLink to="/#" className="nav-link">
-                        Contacts
                       </NavLink>
                     </li>
                   </ul>
@@ -147,7 +122,7 @@ const Footer = () => {
               <ul className="nav text-white align-items-center">
                 <li className="nav-item">
                   <NavLink
-                    to="//facebook.com/runwebrun"
+                    to="//facebook.com/"
                     className="nav-link"
                   >
                     <svg
@@ -166,7 +141,7 @@ const Footer = () => {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    to="//twitter.com/runwebrun"
+                    to="//X.com/"
                     className="nav-link"
                   >
                     <svg
@@ -185,7 +160,7 @@ const Footer = () => {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    to="//instagram.com/runwebrun"
+                    to="//instagram.com/"
                     className="nav-link"
                   >
                     <svg
@@ -206,7 +181,7 @@ const Footer = () => {
             </Col>
             <Col className="col-auto">
               <div className="footer-copyright">
-                © 2020-2023 | Themebau by RunWebRun.
+                © 2020-2023 | TailWind TechWorks LLC.
               </div>
             </Col>
           </Row>
