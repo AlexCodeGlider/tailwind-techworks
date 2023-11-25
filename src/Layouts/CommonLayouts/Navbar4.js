@@ -119,7 +119,7 @@ const Navbar = ({ navClass, styleClass }) => {
       <header className={"navbar 444 navbar-top navbar-expand navbar-fixed sticky " + navClass}>
         <div className="container justify-content-between">
           <Link className="navbar-brand" to="/#">
-            {(navClass && navClass.includes("navbar-dark")) ? <img width="107" src={Logolight} alt="logo" /> : <img width="107" src={Logo} alt="logo" />}
+            {(navClass && navClass.includes("navbar-dark")) ? <img width="268" src={Logolight} alt="logo" /> : <img width="268" src={Logo} alt="logo" />}
           </Link>
           <div
             className="navbar-toggle"
@@ -155,7 +155,7 @@ const Navbar = ({ navClass, styleClass }) => {
             <div className="navbar-head">
               <Container className="justify-content-between">
                 <Link className="navbar-brand" to="/home">
-                  {(navClass && navClass.includes("navbar-dark")) ? <img width="107" src={Logolight} alt="logo" /> : <img width="107" src={Logo} alt="logo" />}
+                  {(navClass && navClass.includes("navbar-dark")) ? <img width="268" src={Logolight} alt="logo" /> : <img width="268" src={Logo} alt="logo" />}
                 </Link>
                 <div className="navbar-toggle" onClick={toggleRemove}>
                   <span></span>

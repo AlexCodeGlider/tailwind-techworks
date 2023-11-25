@@ -10,7 +10,7 @@ import videomp4 from "../assets/videos/creative-branding-studio.mp4";
 import { Card, CardBody, Col, Container, Row } from "reactstrap";
 const CreativeAgency = () => {
   //meta title
-  document.title = "Themebau | Creative Agency";
+  document.title = "Tailwind Techworks | Technology Consulting";
   return (
     <React.Fragment>
       <Navbar navClass="navbar-dark navbar-fixed" styleClass="2"/>
@@ -40,9 +40,16 @@ const CreativeAgency = () => {
                 data-show-duration="900"
                 data-aos="fade"
               >
-                <h1 className="display-4 text-white mb-0">
-                  Creative branding studio.
-                </h1>
+              <h1 
+                className="display-4 text-white mb-0" 
+                style={{ 
+                  wordBreak: 'normal', 
+                  whiteSpace: 'pre-wrap',
+                  fontFamily: 'Montserrat, sans-serif', // Add Montserrat font
+                  fontWeight: 'bold' // Set font weight to bold
+                }}>
+                TailWind TechWorks.
+              </h1>
               </Col>
               <Col lg={2}></Col>
               <Col
@@ -52,8 +59,7 @@ const CreativeAgency = () => {
               >
                 <hr className="mt-0 border-white" />
                 <p className="lead fw-normal" data-aos="fade">
-                  Over 10 years of combined experience, and know NavLink thing
-                  or two about designing websites and mobile apps.
+                  Integrate advanced data science and machine learning into your enterprise workflows, enable actionable insights and transform data analysis into tangible results.
                 </p>
                 <NavLink
                   to="/contact2"
