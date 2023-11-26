@@ -144,7 +144,7 @@ const Navbar = ({ navClass }) => {
         <div className="navbar-head">
           <Container className="justify-content-between">
             <Link className="navbar-brand" to="/home">
-              <img width="107" src={Logo} alt="logo" />
+              <img width="268" src={Logo} alt="logo" />
             </Link>
             <div className="navbar-toggle" onClick={toggleRemove}>
               <span></span>

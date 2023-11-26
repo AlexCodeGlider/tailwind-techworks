@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Blog1 from "../../assets/images/blog/blog-1.jpg";
 import Blog2 from "../../assets/images/blog/blog-2.jpg";
 import Blog3 from "../../assets/images/blog/blog-3.jpg";
-import BlogPost1 from "../../assets/images/blog/blog-post-1.jpg";
+import BlogPost1 from "../../assets/images/blog/netflix.jpeg";
 import BlogPost2 from "../../assets/images/blog/blog-post-2.jpg";
 import BlogPost3 from "../../assets/images/blog/blog-post-3.jpg";
 import BlogPost4 from "../../assets/images/blog/blog-post-4.jpg";
