@@ -110,7 +110,7 @@ const Navbar = ({ navClass }) => {
       <header className={"navbar 333 navbar-top navbar-expand " + navClass}>
         <div className="container justify-content-between">
           <Link className="navbar-brand" to="/#">
-            {navClass !== "navbar-dark navbar-fixed" ? <img width="107" src={Logo} alt="logo" /> : <img width="107" src={Logodark} alt="logo" />}
+            {navClass !== "navbar-dark navbar-fixed" ? <img width="268" src={Logo} alt="logo" /> : <img width="268" src={Logodark} alt="logo" />}
           </Link>
           <div
             className="navbar-toggle"

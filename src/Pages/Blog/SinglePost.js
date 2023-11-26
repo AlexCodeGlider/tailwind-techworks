@@ -16,7 +16,7 @@ import Navbar from "../../Layouts/CommonLayouts/Navbar3";
 
 const SinglePost = () => {
   //meta title
-  document.title = "Themebau | Blog Post";
+  document.title = "TailWind TechWorks | Blog Post";
   return (
     <React.Fragment>
       <Navbar navClass="sticky" />
@@ -25,10 +25,10 @@ const SinglePost = () => {
           <Row className="justify-content-center text-center pt-60 pb-130 mt-30">
             <Col lg={8} className="col-12">
               <div className="subtitle" data-aos="fade-up">
-                lifestyle - 05 may, 2020
+                entertainment
               </div>
               <h1 className="h2 mb-n10" data-aos="fade-up">
-                Are you getting the Most out of your Travel?
+                Who are the key people in Netflix's success?
               </h1>
             </Col>
           </Row>
