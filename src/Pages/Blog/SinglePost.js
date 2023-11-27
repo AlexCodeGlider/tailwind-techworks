@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 //Images
@@ -17,6 +17,7 @@ import Navbar from "../../Layouts/CommonLayouts/Navbar3";
 const SinglePost = () => {
   //meta title
   document.title = "TailWind TechWorks | Netflix Network";
+  const [isFullScreen, setIsFullScreen] = useState(false);
   return (
     <React.Fragment>
       <Navbar navClass="sticky" />
@@ -101,7 +102,7 @@ const SinglePost = () => {
           </Row>
           <Row className="justify-content-center gh-1 mb-10">
             <Col lg={8} className="post-content">
-              <h3>How you meaure importance matters.</h3>
+              <h3>How you measure importance matters.</h3>
               <p>
                 Any network with connections between individuals, where the 
                 connections capture the relationship between them is a social 
@@ -117,12 +118,40 @@ const SinglePost = () => {
             <Col sm={6} md={4} className="col-12" data-aos="fade-up">
               <h3>Degree Centrality</h3>
               <Link
-                to={BlogPost4}
                 className="gallery-item gallery-item-lg"
                 data-fancybox="gallery-2"
                 data-aos="fade"
               >
-                <img src={BlogPost4} alt="Degree Centrality"/>
+                {isFullScreen ? (
+                  <div
+                    style={{
+                      position: 'fixed',
+                      top: 0, // Add margin top and bottom of 20px each
+                      left: 0,
+                      height: '100vh',
+                      width: '100vw',
+                      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      zIndex: 1000,
+                    }}
+                    onClick={() => setIsFullScreen(false)}
+                  >
+                    <img
+                      src={BlogPost4}
+                      alt="Degree Centrality"
+                      style={{
+                        maxHeight: 'calc(100vh - 60px)',
+                        maxWidth: '100%',
+                        objectFit: 'contain',
+                        marginTop: '20px', // Add margin top of 20px
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <img src={BlogPost4} alt="Degree Centrality" onClick={() => setIsFullScreen(true)} />
+                )}
               </Link>
             </Col>
             <Col sm={6} md={4} className="col-12" data-aos="fade-up">
