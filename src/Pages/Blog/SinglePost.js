@@ -112,12 +112,12 @@ const SinglePost = () => {
                 who are most connected, etc. To the end goal of finding the most 
                 important nodes (individuals) in the network, we will focus on two metrics knows as...
               </p>
-              <h4>Centrality Measures</h4>
+              <h3>Centrality Measures</h3>
             </Col>
           </Row>
           <Row className="gh-1 gv-1 mb-100">
             <Col sm={6} md={4} className="col-12" data-aos="fade-up">
-              <h3>Degree Centrality</h3>
+              <h4>Degree Centrality</h4>
               <Link
                 className="gallery-item gallery-item-lg"
                 data-fancybox="gallery-2"
@@ -158,7 +158,7 @@ const SinglePost = () => {
               </Link>
             </Col>
             <Col sm={6} md={4} className="col-12" data-aos="fade-up">
-              <h3>Eigenvector Centrality</h3>
+              <h4>Eigenvector Centrality</h4>
               <Link
                 className="gallery-item gallery-item-lg"
                 data-fancybox="gallery-2"
@@ -199,7 +199,7 @@ const SinglePost = () => {
               </Link>
             </Col>
             <Col sm={6} md={4} className="col-12" data-aos="fade-up">
-              <h3>PageRank Centrality</h3>
+              <h4>PageRank Centrality</h4>
               <Link
                 className="gallery-item gallery-item-lg"
                 data-fancybox="gallery-2"
@@ -274,8 +274,9 @@ const SinglePost = () => {
                 />
               </svg>
               <blockquote className="mt-6 mb-100">
-                Whales fly cattle all, us saw given moveth rule very thing from
-                him. Fruitful female unto every dominion two all.
+                <p className="h2 lh-180">
+                  It's not all about the actors. Producers are also key.
+                </p>
               </blockquote>
             </Col>
             <Col lg={8} className="col-12">
@@ -283,9 +284,9 @@ const SinglePost = () => {
               <Row className="gh-2 gv-1 justify-content-between">
                 <Col className="col-auto">
                   <span className="fw-medium me-8">Tags:</span>{" "}
-                  <Link to="/#">company</Link>,{" "}
-                  <Link to="/#">design</Link>,{" "}
-                  <Link to="/#">travel</Link>
+                  <Link to="/#">netflix</Link>,{" "}
+                  <Link to="/#">network</Link>,{" "}
+                  <Link to="/#">analysis</Link>
                 </Col>
                 <Col className="col-auto">
                   <span className="fw-medium">Share:</span>

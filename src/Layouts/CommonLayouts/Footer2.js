@@ -22,24 +22,16 @@ const Footer = () => {
           <ul className="nav align-items-center flex-column text-white mb-100">
             <li className="nav-item">
               <NavLink
-                to="mailto:hello@themebau.com?subject=Test%20Address%20Email"
+                to="mailto:hello@tailwind-techworks.com?subject=Test%20Address%20Email"
                 className="nav-link h2 mb-8 mb-md-30 d-none d-md-flex"
               >
-                hello@themebau.com
+                hello@tailwind-techworks.com
               </NavLink>
               <NavLink
                 to="mailto:hello@themebau.com?subject=Test%20Address%20Email"
                 className="nav-link h4 mb-8 mb-md-30 d-md-none"
               >
-                hello@themebau.com
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="callto:+1 202-358-0309"
-                className="nav-link h4 mt-8 mt-md-0"
-              >
-                +1 202-358-0309
+                hello@tailwind-techworks.com
               </NavLink>
             </li>
           </ul>
@@ -61,7 +53,7 @@ const Footer = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="//twitter.com/runwebrun" className="nav-link">
+              <NavLink to="//X.com/" className="nav-link">
                 <svg
                   width="17"
                   height="15"
@@ -78,7 +70,7 @@ const Footer = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to="//instagram.com/runwebrun"
+                to="//instagram.com/"
                 className="nav-link"
               >
                 <svg
@@ -97,7 +89,7 @@ const Footer = () => {
             </li>
           </ul>
           <div className="footer-copyright mb-5">
-            © 2020-2023 | Themebau by RunWebRun.
+            © 2020-2023 | TailWind TechWorks LLC.
           </div>
         </Container>
       </footer>
