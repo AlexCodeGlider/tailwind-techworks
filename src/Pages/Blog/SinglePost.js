@@ -7,17 +7,18 @@ import Blog2 from "../../assets/images/blog/blog-2.jpg";
 import Blog3 from "../../assets/images/blog/blog-3.jpg";
 import BlogPost1 from "../../assets/images/blog/netflix.jpeg";
 import BlogPost2 from "../../assets/images/blog/network_actors.png";
-import BlogPost3 from "../../assets/images/blog/blog-post-3.jpg";
 import BlogPost4 from "../../assets/images/blog/degree_centrality.png";
-import BlogPost5 from "../../assets/images/blog/blog-post-5.jpg";
-import BlogPost6 from "../../assets/images/blog/blog-post-6.jpg";
+import BlogPost5 from "../../assets/images/blog/eigenvector_centrality.png";
+import BlogPost6 from "../../assets/images/blog/pagerank_centrality.png";
 import Footer from "../../Layouts/CommonLayouts/Footer2";
 import Navbar from "../../Layouts/CommonLayouts/Navbar3";
 
 const SinglePost = () => {
   //meta title
   document.title = "TailWind TechWorks | Netflix Network";
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isDegreeCentralityFullScreen, setIsDegreeCentralityFullScreen] = useState(false);
+  const [isEigenvectorCentralityFullScreen, setIsEigenvectorCentralityFullScreen] = useState(false);
+  const [isPageRankCentralityFullScreen, setIsPageRankCentralityFullScreen] = useState(false);
   return (
     <React.Fragment>
       <Navbar navClass="sticky" />
@@ -122,11 +123,12 @@ const SinglePost = () => {
                 data-fancybox="gallery-2"
                 data-aos="fade"
               >
-                {isFullScreen ? (
+                {isDegreeCentralityFullScreen ? (
+                  // Full screen image for Degree Centrality
                   <div
                     style={{
                       position: 'fixed',
-                      top: 0, // Add margin top and bottom of 20px each
+                      top: 0,
                       left: 0,
                       height: '100vh',
                       width: '100vw',
@@ -136,7 +138,7 @@ const SinglePost = () => {
                       alignItems: 'center',
                       zIndex: 1000,
                     }}
-                    onClick={() => setIsFullScreen(false)}
+                    onClick={() => setIsDegreeCentralityFullScreen(false)}
                   >
                     <img
                       src={BlogPost4}
@@ -145,33 +147,96 @@ const SinglePost = () => {
                         maxHeight: 'calc(100vh - 60px)',
                         maxWidth: '100%',
                         objectFit: 'contain',
-                        marginTop: '20px', // Add margin top of 20px
+                        marginTop: '20px',
                       }}
                     />
                   </div>
                 ) : (
-                  <img src={BlogPost4} alt="Degree Centrality" onClick={() => setIsFullScreen(true)} />
+                  // Regular image for Degree Centrality
+                  <img src={BlogPost4} alt="Degree Centrality" onClick={() => setIsDegreeCentralityFullScreen(true)} />
                 )}
               </Link>
             </Col>
             <Col sm={6} md={4} className="col-12" data-aos="fade-up">
+              <h3>Eigenvector Centrality</h3>
               <Link
-                to={BlogPost5}
                 className="gallery-item gallery-item-lg"
                 data-fancybox="gallery-2"
                 data-aos="fade"
               >
-                <img src={BlogPost5} alt="" />
+                {isEigenvectorCentralityFullScreen ? (
+                  // Full screen image for Eigenvector Centrality
+                  <div
+                    style={{
+                      position: 'fixed',
+                      top: 0,
+                      left: 0,
+                      height: '100vh',
+                      width: '100vw',
+                      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      zIndex: 1000,
+                    }}
+                    onClick={() => setIsEigenvectorCentralityFullScreen(false)}
+                  >
+                    <img
+                      src={BlogPost5}
+                      alt="Eigenvector Centrality"
+                      style={{
+                        maxHeight: 'calc(100vh - 60px)',
+                        maxWidth: '100%',
+                        objectFit: 'contain',
+                        marginTop: '20px',
+                      }}
+                    />
+                  </div>
+                ) : (
+                  // Regular image for Eigenvector Centrality
+                  <img src={BlogPost5} alt="Eigenvector Centrality" onClick={() => setIsEigenvectorCentralityFullScreen(true)} />
+                )}
               </Link>
             </Col>
             <Col sm={6} md={4} className="col-12" data-aos="fade-up">
+              <h3>PageRank Centrality</h3>
               <Link
-                to={BlogPost6}
                 className="gallery-item gallery-item-lg"
                 data-fancybox="gallery-2"
                 data-aos="fade"
               >
-                <img src={BlogPost6} alt="" />
+                {isPageRankCentralityFullScreen ? (
+                  // Full screen image for PageRank Centrality
+                  <div
+                    style={{
+                      position: 'fixed',
+                      top: 0,
+                      left: 0,
+                      height: '100vh',
+                      width: '100vw',
+                      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      zIndex: 1000,
+                    }}
+                    onClick={() => setIsPageRankCentralityFullScreen(false)}
+                  >
+                    <img
+                      src={BlogPost6}
+                      alt="PageRank Centrality"
+                      style={{
+                        maxHeight: 'calc(100vh - 60px)',
+                        maxWidth: '100%',
+                        objectFit: 'contain',
+                        marginTop: '20px',
+                      }}
+                    />
+                  </div>
+                ) : (
+                  // Regular image for PageRank Centrality
+                  <img src={BlogPost6} alt="PageRank Centrality" onClick={() => setIsPageRankCentralityFullScreen(true)} />
+                )}
               </Link>
             </Col>
           </Row>
