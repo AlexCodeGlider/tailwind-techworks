@@ -27,7 +27,7 @@ const Footer = () => {
                 <img width="184" src={Logo} alt="" />
               </NavLink>
               <p className="mb-0">
-                We are a team of designers and developers that create high
+                We are a team of developers that create high
                 quality machine learning workflows.
               </p>
             </Col>

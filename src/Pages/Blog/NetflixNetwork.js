@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 //Images
 import Blog1 from "../../assets/images/blog/blog-1.jpg";
 import Blog2 from "../../assets/images/blog/blog-2.jpg";
 import Blog3 from "../../assets/images/blog/blog-3.jpg";
-import BlogPost1 from "../../assets/images/blog/blog-post-1.jpg";
-import BlogPost2 from "../../assets/images/blog/blog-post-2.jpg";
-import BlogPost3 from "../../assets/images/blog/blog-post-3.jpg";
-import BlogPost4 from "../../assets/images/blog/blog-post-4.jpg";
-import BlogPost5 from "../../assets/images/blog/blog-post-5.jpg";
-import BlogPost6 from "../../assets/images/blog/blog-post-6.jpg";
+import BlogPost1 from "../../assets/images/blog/netflix.jpeg";
+import BlogPost2 from "../../assets/images/blog/network_actors.png";
+import BlogPost4 from "../../assets/images/blog/degree_centrality.png";
+import BlogPost5 from "../../assets/images/blog/eigenvector_centrality.png";
+import BlogPost6 from "../../assets/images/blog/pagerank_centrality.png";
 import Footer from "../../Layouts/CommonLayouts/Footer2";
 import Navbar from "../../Layouts/CommonLayouts/Navbar3";
 
-const SinglePost = () => {
+const NetflixNetwork = () => {
   //meta title
-  document.title = "Themebau | Blog Post";
+  document.title = "TailWind TechWorks | Netflix Network";
+  const [isDegreeCentralityFullScreen, setIsDegreeCentralityFullScreen] = useState(false);
+  const [isEigenvectorCentralityFullScreen, setIsEigenvectorCentralityFullScreen] = useState(false);
+  const [isPageRankCentralityFullScreen, setIsPageRankCentralityFullScreen] = useState(false);
   return (
     <React.Fragment>
       <Navbar navClass="sticky" />
@@ -25,10 +27,10 @@ const SinglePost = () => {
           <Row className="justify-content-center text-center pt-60 pb-130 mt-30">
             <Col lg={8} className="col-12">
               <div className="subtitle" data-aos="fade-up">
-                lifestyle - 05 may, 2020
+                entertainment
               </div>
               <h1 className="h2 mb-n10" data-aos="fade-up">
-                Are you getting the Most out of your Travel?
+                Who are the key players for Netflix?
               </h1>
             </Col>
           </Row>
@@ -41,29 +43,54 @@ const SinglePost = () => {
           <Row className="justify-content-center gh-1 mb-100">
             <Col lg={8} className="post-content">
               <p className="lead fw-medium">
-                Don't. Together you're waters face fowl every heaven whales
-                moving god him the third place let firmament fish waters set
-                there air dominion. Open earth so was face male life very i him
-                from gathered beginning.
+                In 2007, a decade after going into the film and television distribution 
+                business as a DVD rental by mail company, Netflix made a bold move that 
+                would change the way people watch television for the times to come. They 
+                launched the first commercially successful subscription video-on-demand service, 
+                forever changing the entertainment distribution and consumption paradigm. 
+                For the first time, the audience could now watch what they wanted, when they 
+                wanted, so long as the content they were looking for was available on the service. 
               </p>
               <p>
-                Together firmament good replenish they're moving fruitful over
-                living i. Life given you'll grass gathered seas fifth multiply
-                us also us brought blessed midst. Together you man lights he
-                form. Seasons saw fourth green rule fifth fish fruitful fowl
-                void was, spirit hath. They're days fruit multiply so creepeth
-                without whose. For be night. That firmament divided.
+                Today Netflix has over 214 million subscribers worldwide, including 74 million 
+                in the United States. As a data-driven company, they are known to perform extensive 
+                analysis on the viewership data they collect from their users. These analyses 
+                inform much of the decision-making processes within the company, including what 
+                content to license, commission, or produce. Questions such as what content to 
+                greenlight, who is a better actor for a given role, and who would be a good director 
+                for a given film are all answered with data within the organization. However, as of 
+                today, this information is mainly kept close to their chest. Identifying the key 
+                players in the film industry, especially those contributing to Netflix's success, 
+                can provide valuable insights into the elements driving the platform's popularity 
+                and growth. By understanding the roles and impact of these individuals, Netflix can 
+                better strategize content acquisition, creation, and marketing to maintain its 
+                competitive edge and satisfy its diverse subscriber base.
               </p>
               <p>
-                Can't midst all appear great Set greater land. Thing under.
-                Moveth is, void fowl them beast. Which fowl fruitful. Us every
-                green seed likeness. Air the set after you'll of. Gathering that
-                he beast be fish it air air male made, two.
+                In the following analysis, I aim to answer the overarching question of who the key 
+                individuals for Netflix’s success are by performing network analyses. This project 
+                will focus on the titles currently available for viewing in the United States; however, 
+                these same concepts could be extended to other countries. Unfortunately, Netflix doesn’t 
+                make their viewership information available, but beginning about a year and a half ago, 
+                they started posting their daily top 10 ranking in film and television. We will use this 
+                data as a proxy measure of success by awarding each title 10 points for each day it ranks 
+                number one, 9 points for each day it ranks number two, and so on. The final score is the 
+                sum of points during the entire period for which a given title ranked in the top 10. Any 
+                title released since they began posting rankings publicly but that did not rank in the top 
+                10 is awarded the default value of 1 point. This data is then enriched by cross-referencing 
+                the titles with existing movie databases, such as IMDb, to obtain the key talent involved. 
+                With this data at hand, we build a weighted undirected graph where the nodes represent the 
+                talent, the edges represent the movies they worked together in, and the edge weights are the 
+                total ranking score for a given title. Network analysis was chosen to answer the research 
+                question due to its ability to uncover complex relationships and interactions among individuals 
+                involved in the film industry. By examining the connections between key personnel in various 
+                projects, we can gain insights into the structure and dynamics of the industry and identify 
+                the most influential players based on their positions within the network. 
               </p>
             </Col>
           </Row>
-          <Row className="gh-1 gv-1 mb-100">
-            <Col sm={6} className="col-12" data-aos="fade-up">
+          <Row className="gh-1 gv-1 mb-100 justify-content-center">
+            <Col sm={8} className="col-12" data-aos="fade-up">
               <Link
                 to={BlogPost2}
                 className="gallery-item gallery-item-lg"
@@ -73,75 +100,164 @@ const SinglePost = () => {
                 <img src={BlogPost2} alt="" />
               </Link>
             </Col>
-            <div className="col-12 col-sm-6" data-aos="fade-up">
-              <Link
-                to={BlogPost3}
-                className="gallery-item gallery-item-lg"
-                data-fancybox="gallery-1"
-                data-aos="fade"
-              >
-                <img src={BlogPost3} alt="" />
-              </Link>
-            </div>
           </Row>
-          <Row className="justify-content-center gh-1 mb-100">
+          <Row className="justify-content-center gh-1 mb-10">
             <Col lg={8} className="post-content">
-              <h3>Moving void, let fill in midst open.</h3>
+              <h3>How you measure importance matters.</h3>
               <p>
-                Male under yielding whose his appear sea green. Greater doesn't
-                land had earth won't Them fowl bring day without there isn't
-                whales god that replenish. Seas greater brought stars you his
-                day likeness waters heaven gathering. Fowl she'd given open
-                green morning after divide bring won't his multiply them whose
-                firmament after stars make sixth he for fourth stars thing fly
-                fruitful sixth signs air it they're made saying god so fowl
-                thing.
+                Any network with connections between individuals, where the 
+                connections capture the relationship between them is a social 
+                network. Analyzing these networks can give us great insight 
+                about the people in the network like who are real influencers,
+                who are most connected, etc. To the end goal of finding the most 
+                important nodes (individuals) in the network, we will focus on two metrics knows as...
               </p>
-              <h4>Own whose male beginning thing?</h4>
-              <p>
-                Male under yielding whose his appear sea green. Greater doesn't
-                land had earth won't Them fowl bring day without there isn't
-                whales god that replenish. Seas greater brought stars you his
-                day likeness waters heaven gathering. Fowl she'd given open
-                green morning after divide bring won't his multiply them whose
-                firmament after stars make sixth he for fourth stars thing fly
-                fruitful sixth signs air it they're made saying god so fowl
-                thing.
-              </p>
+              <h3>Centrality Measures</h3>
             </Col>
           </Row>
           <Row className="gh-1 gv-1 mb-100">
             <Col sm={6} md={4} className="col-12" data-aos="fade-up">
+              <h4>Degree Centrality</h4>
               <Link
-                to={BlogPost4}
                 className="gallery-item gallery-item-lg"
                 data-fancybox="gallery-2"
                 data-aos="fade"
               >
-                <img src={BlogPost4} alt="" />
+                {isDegreeCentralityFullScreen ? (
+                  // Full screen image for Degree Centrality
+                  <div
+                    style={{
+                      position: 'fixed',
+                      top: 0,
+                      left: 0,
+                      height: '100vh',
+                      width: '100vw',
+                      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      zIndex: 1000,
+                    }}
+                    onClick={() => setIsDegreeCentralityFullScreen(false)}
+                  >
+                    <img
+                      src={BlogPost4}
+                      alt="Degree Centrality"
+                      style={{
+                        maxHeight: 'calc(100vh - 60px)',
+                        maxWidth: '100%',
+                        objectFit: 'contain',
+                        marginTop: '20px',
+                      }}
+                    />
+                  </div>
+                ) : (
+                  // Regular image for Degree Centrality
+                  <img src={BlogPost4} alt="Degree Centrality" onClick={() => setIsDegreeCentralityFullScreen(true)} />
+                )}
               </Link>
             </Col>
             <Col sm={6} md={4} className="col-12" data-aos="fade-up">
+              <h4>Eigenvector Centrality</h4>
               <Link
-                to={BlogPost5}
                 className="gallery-item gallery-item-lg"
                 data-fancybox="gallery-2"
                 data-aos="fade"
               >
-                <img src={BlogPost5} alt="" />
+                {isEigenvectorCentralityFullScreen ? (
+                  // Full screen image for Eigenvector Centrality
+                  <div
+                    style={{
+                      position: 'fixed',
+                      top: 0,
+                      left: 0,
+                      height: '100vh',
+                      width: '100vw',
+                      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      zIndex: 1000,
+                    }}
+                    onClick={() => setIsEigenvectorCentralityFullScreen(false)}
+                  >
+                    <img
+                      src={BlogPost5}
+                      alt="Eigenvector Centrality"
+                      style={{
+                        maxHeight: 'calc(100vh - 60px)',
+                        maxWidth: '100%',
+                        objectFit: 'contain',
+                        marginTop: '20px',
+                      }}
+                    />
+                  </div>
+                ) : (
+                  // Regular image for Eigenvector Centrality
+                  <img src={BlogPost5} alt="Eigenvector Centrality" onClick={() => setIsEigenvectorCentralityFullScreen(true)} />
+                )}
               </Link>
             </Col>
             <Col sm={6} md={4} className="col-12" data-aos="fade-up">
+              <h4>PageRank Centrality</h4>
               <Link
-                to={BlogPost6}
                 className="gallery-item gallery-item-lg"
                 data-fancybox="gallery-2"
                 data-aos="fade"
               >
-                <img src={BlogPost6} alt="" />
+                {isPageRankCentralityFullScreen ? (
+                  // Full screen image for PageRank Centrality
+                  <div
+                    style={{
+                      position: 'fixed',
+                      top: 0,
+                      left: 0,
+                      height: '100vh',
+                      width: '100vw',
+                      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      zIndex: 1000,
+                    }}
+                    onClick={() => setIsPageRankCentralityFullScreen(false)}
+                  >
+                    <img
+                      src={BlogPost6}
+                      alt="PageRank Centrality"
+                      style={{
+                        maxHeight: 'calc(100vh - 60px)',
+                        maxWidth: '100%',
+                        objectFit: 'contain',
+                        marginTop: '20px',
+                      }}
+                    />
+                  </div>
+                ) : (
+                  // Regular image for PageRank Centrality
+                  <img src={BlogPost6} alt="PageRank Centrality" onClick={() => setIsPageRankCentralityFullScreen(true)} />
+                )}
               </Link>
             </Col>
           </Row>
+          <Row className="justify-content-center gh-1 mb-100">
+            <Col lg={8} className="post-content">
+                <p>
+                  One of the most surprising results from these analyses is that, 
+                  although most of the people involved in the network are actors, 
+                  most of the players central to Netflix are not. Degree centrality, 
+                  which is based on the fact that important people have many connections, 
+                  predictably shows that producers primarily dominate the top rank. This 
+                  understanding coincides with a producer's role in producing film and 
+                  television content, where they are tasked with making the connections 
+                  necessary for a project to be realized. On the other hand, eigenvector 
+                  centrality, which aims to rate players by the importance of their neighbors, 
+                  shows a higher percentage of actors. Finally, PageRank centrality, which 
+                  rates players by the centrality of their connections, offers the most 
+                  diverse group of individuals.
+                </p>
+              </Col>
+            </Row>
           <Row className="justify-content-center gh-1 mb-n4">
             <Col lg={6} className="col-12 text-center">
               <svg
@@ -158,8 +274,9 @@ const SinglePost = () => {
                 />
               </svg>
               <blockquote className="mt-6 mb-100">
-                Whales fly cattle all, us saw given moveth rule very thing from
-                him. Fruitful female unto every dominion two all.
+                <p className="h2 lh-180">
+                  It's not all about the actors. Producers are also key.
+                </p>
               </blockquote>
             </Col>
             <Col lg={8} className="col-12">
@@ -167,9 +284,9 @@ const SinglePost = () => {
               <Row className="gh-2 gv-1 justify-content-between">
                 <Col className="col-auto">
                   <span className="fw-medium me-8">Tags:</span>{" "}
-                  <Link to="/#">company</Link>,{" "}
-                  <Link to="/#">design</Link>,{" "}
-                  <Link to="/#">travel</Link>
+                  <Link to="/#">netflix</Link>,{" "}
+                  <Link to="/#">network</Link>,{" "}
+                  <Link to="/#">analysis</Link>
                 </Col>
                 <Col className="col-auto">
                   <span className="fw-medium">Share:</span>
@@ -345,4 +462,4 @@ const SinglePost = () => {
   );
 };
 
-export default SinglePost;
+export default NetflixNetwork;

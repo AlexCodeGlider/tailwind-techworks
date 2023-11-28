@@ -41,6 +41,7 @@ import SingleService from "../Pages/Services/SingleService";
 import Column3 from "../Pages/Blog/Column3";
 import Column1 from "../Pages/Blog/Column1";
 import SinglePost from "../Pages/Blog/SinglePost";
+import NetflixNetwork from "../Pages/Blog/NetflixNetwork";
 import ComingSoon from "../Pages/ComingSoon";
 import Page404 from "../Pages/404";
 
@@ -108,6 +109,7 @@ const routes = [
   { path: "/blog3", element: <Column3 /> },
   { path: "/blog1", element: <Column1 /> },
   { path: "/singlepost", element: <SinglePost /> },
+  { path: "/netflix-network", element: <NetflixNetwork /> },
 
   { path: "/coming-soon", element: <ComingSoon /> },
   { path: "/404", element: <Page404 /> },
