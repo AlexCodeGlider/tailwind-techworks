@@ -42,6 +42,7 @@ import Column3 from "../Pages/Blog/Column3";
 import Column1 from "../Pages/Blog/Column1";
 import SinglePost from "../Pages/Blog/SinglePost";
 import NetflixNetwork from "../Pages/Blog/NetflixNetwork";
+import NetflixEDA from "../Pages/Blog/NetflixEDA";
 import ComingSoon from "../Pages/ComingSoon";
 import Page404 from "../Pages/404";
 
@@ -110,6 +111,7 @@ const routes = [
   { path: "/blog1", element: <Column1 /> },
   { path: "/singlepost", element: <SinglePost /> },
   { path: "/netflix-network", element: <NetflixNetwork /> },
+  { path: "/netflix-model", element: <NetflixEDA />},
 
   { path: "/coming-soon", element: <ComingSoon /> },
   { path: "/404", element: <Page404 /> },
