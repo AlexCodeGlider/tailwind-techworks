@@ -12,6 +12,89 @@ import Top20Results from "../../assets/images/blog/top20results.png";
 import FeatureImportance from "../../assets/images/blog/feat_importances.png";
 import Footer from "../../Layouts/CommonLayouts/Footer2";
 import Navbar from "../../Layouts/CommonLayouts/Navbar3";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import data from '../../assets/data/predictions.json';
+import feature_importances from '../../assets/data/feature_importances.json';
+
+function CustomTooltip({ payload }) {
+  if (payload && payload.length) {
+    const data = payload[0].payload;
+    return (
+      <div style={{ backgroundColor: '#fff', border: '1px solid #ccc', maxWidth: '700px' }}>
+        <p style={{ margin: '0.5em 0' }}><strong>Title:</strong> {data.Title}</p>
+        <p style={{ margin: '0.5em 0' }}><strong>Score:</strong> {data.Score}</p>
+        <p style={{ margin: '0.5em 0' }}><strong>Genre:</strong> {data.Genre}</p>
+        <p style={{ margin: '0.5em 0' }}><strong>Director:</strong> {data.Director}</p>
+        <p style={{ margin: '0.5em 0' }}><strong>Actors:</strong> {data.Actor}</p>
+        <p style={{ margin: '0.5em 0' }}><strong>Plot:</strong> {data.Plot}</p>
+      </div>
+    );
+  }
+
+  return null;
+}
+
+function MovieChart() {
+  return (
+    <ResponsiveContainer width="100%" height={1000}>
+      <BarChart layout="vertical" data={data}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis type="number" />
+        <YAxis 
+          dataKey="Title" 
+          type="category" 
+          width={280} 
+          interval={0}
+          tick={props => (
+            <text 
+              x={props.x} 
+              y={props.y} 
+              dy={3}
+              textAnchor="end" 
+              fill={props.fill}
+              fontSize={16}
+            >
+              {props.payload.value}
+            </text>
+          )}
+        />
+        <Tooltip content={<CustomTooltip />} />
+        <Bar dataKey="Score" fill="#8884d8" />
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
+function FeatureImportanceChart() {
+  return (
+    <ResponsiveContainer width="100%" height={1000}>
+      <BarChart layout="vertical" data={feature_importances}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis type="number" />
+        <YAxis 
+          dataKey="feature"
+          type="category"
+          width={280}
+          interval={0}
+          tick={props => (
+            <text 
+              x={props.x} 
+              y={props.y} 
+              dy={3}
+              textAnchor="end" 
+              fill={props.fill}
+              fontSize={16}
+            >
+              {props.payload.value}
+            </text>
+          )}
+        />
+        <Tooltip />
+        <Bar dataKey="importance" fill="#8884d8" />
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
 
 const NetflixEDA = () => {
   //meta title
@@ -185,12 +268,7 @@ const NetflixEDA = () => {
               </p>
             </Col>
           </Row>
-          <img
-            className="w-100 mb-100"
-            src={Top20Results}
-            alt=""
-            data-show-duration="800"
-          />
+          <MovieChart />
           <Row className="justify-content-center gh-1 mb-100">
             <Col lg={8} className="post-content">
               <h3>Feature Importance</h3>
@@ -200,12 +278,7 @@ const NetflixEDA = () => {
               </p>
             </Col>
           </Row>
-          <img
-            className="w-100 mb-100"
-            src={FeatureImportance}
-            alt=""
-            data-show-duration="800"
-          />
+          <FeatureImportanceChart />
           <Row className="justify-content-center gh-1 mb-n4">
             <Col lg={6} className="col-12 text-center">
               <svg
