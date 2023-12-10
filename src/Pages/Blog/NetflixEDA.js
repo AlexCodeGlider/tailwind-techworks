@@ -8,8 +8,6 @@ import Blog3 from "../../assets/images/blog/blog-3.jpg";
 import BlogPost1 from "../../assets/images/blog/top10-films-mexico-oct-23-oct-29-2023.jpeg";
 import BlogPost2 from "../../assets/images/blog/log_normal_US_scores_fit.png";
 import BlogPost3 from "../../assets/images/blog/log_normal_MX_scores_fit.png";
-import Top20Results from "../../assets/images/blog/top20results.png";
-import FeatureImportance from "../../assets/images/blog/feat_importances.png";
 import Footer from "../../Layouts/CommonLayouts/Footer2";
 import Navbar from "../../Layouts/CommonLayouts/Navbar3";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
