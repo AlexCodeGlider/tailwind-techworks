@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "aos": "^3.0.0-beta.6",
+    "axios": "^1.6.2",
     "bootstrap": "^5.1.0",
     "google-maps-react": "^2.0.6",
+    "leaflet": "^1.9.4",
     "node-sass": "^7.0.1",
     "react": "^18.2.0",
     "react-countdown": "^2.3.2",
@@ -16,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-fancybox": "^0.2.5",
     "react-image-lightbox": "^5.1.4",
+    "react-leaflet": "^4.2.1",
     "react-modal-video": "^1.2.10",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
@@ -52,5 +58,8 @@
   },
   "resolutions": {
     "autoprefixer": "10.4.5"
+  },
+  "devDependencies": {
+    "html-loader": "^4.2.0"
   }
 }

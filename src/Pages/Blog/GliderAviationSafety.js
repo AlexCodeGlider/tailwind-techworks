@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 //Images
@@ -13,6 +13,7 @@ import BlogPost5 from "../../assets/images/blog/blog-post-5.jpg";
 import BlogPost6 from "../../assets/images/blog/blog-post-6.jpg";
 import Footer from "../../Layouts/CommonLayouts/Footer2";
 import Navbar from "../../Layouts/CommonLayouts/Navbar3";
+import AccidentMap from '../../components/AccidentMap';
 
 const GliderAviationSafety = () => {
   //meta title
@@ -89,28 +90,7 @@ const GliderAviationSafety = () => {
               </p>
             </Col>
           </Row>
-          <Row className="gh-1 gv-1 mb-100">
-            <Col sm={6} className="col-12" data-aos="fade-up">
-              <Link
-                to={BlogPost2}
-                className="gallery-item gallery-item-lg"
-                data-fancybox="gallery-1"
-                data-aos="fade"
-              >
-                <img src={BlogPost2} alt="" />
-              </Link>
-            </Col>
-            <div className="col-12 col-sm-6" data-aos="fade-up">
-              <Link
-                to={BlogPost3}
-                className="gallery-item gallery-item-lg"
-                data-fancybox="gallery-1"
-                data-aos="fade"
-              >
-                <img src={BlogPost3} alt="" />
-              </Link>
-            </div>
-          </Row>
+          <AccidentMap />
           <Row className="justify-content-center gh-1 mb-100">
             <Col lg={8} className="post-content">
               <h3>Moving void, let fill in midst open.</h3>
