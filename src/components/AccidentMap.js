@@ -27,6 +27,8 @@ function GliderAviationSafety() {
                     <Marker key={index} position={[item.cm_Latitude, item.cm_Longitude]} icon={defaultIcon}>
                         <Popup>
                             {item.cm_highestInjury}
+                            <br />
+                            {item.Date}
                         </Popup>
                     </Marker>
                 )

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Col, Container, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 //Images
@@ -6,8 +6,6 @@ import Blog1 from "../../assets/images/blog/blog-1.jpg";
 import Blog2 from "../../assets/images/blog/blog-2.jpg";
 import Blog3 from "../../assets/images/blog/blog-3.jpg";
 import BlogPost1 from "../../assets/images/blog/blog-post-1.jpg";
-import BlogPost2 from "../../assets/images/blog/blog-post-2.jpg";
-import BlogPost3 from "../../assets/images/blog/blog-post-3.jpg";
 import BlogPost4 from "../../assets/images/blog/blog-post-4.jpg";
 import BlogPost5 from "../../assets/images/blog/blog-post-5.jpg";
 import BlogPost6 from "../../assets/images/blog/blog-post-6.jpg";
