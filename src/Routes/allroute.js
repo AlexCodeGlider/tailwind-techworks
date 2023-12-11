@@ -44,7 +44,6 @@ import SinglePost from "../Pages/Blog/SinglePost";
 import NetflixNetwork from "../Pages/Blog/NetflixNetwork";
 import NetflixEDA from "../Pages/Blog/NetflixEDA";
 import GliderAviationSafety from "../Pages/Blog/GliderAviationSafety";
-import AccidentMap from "../components/AccidentMap";
 import ComingSoon from "../Pages/ComingSoon";
 import Page404 from "../Pages/404";
 
@@ -115,7 +114,6 @@ const routes = [
   { path: "/netflix-network", element: <NetflixNetwork /> },
   { path: "/netflix-model", element: <NetflixEDA />},
   { path: "/glider-aviation-safety", element: <GliderAviationSafety />},
-  { path: "/accident-map", element: <AccidentMap />},
 
   { path: "/coming-soon", element: <ComingSoon /> },
   { path: "/404", element: <Page404 /> },

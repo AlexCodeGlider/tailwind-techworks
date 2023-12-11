@@ -6,12 +6,45 @@ import Blog1 from "../../assets/images/blog/blog-1.jpg";
 import Blog2 from "../../assets/images/blog/blog-2.jpg";
 import Blog3 from "../../assets/images/blog/blog-3.jpg";
 import BlogPost1 from "../../assets/images/blog/blog-post-1.jpg";
+import Glider1 from "../../assets/images/blog/glider-1.jpg";
 import BlogPost4 from "../../assets/images/blog/blog-post-4.jpg";
 import BlogPost5 from "../../assets/images/blog/blog-post-5.jpg";
 import BlogPost6 from "../../assets/images/blog/blog-post-6.jpg";
 import Footer from "../../Layouts/CommonLayouts/Footer2";
 import Navbar from "../../Layouts/CommonLayouts/Navbar3";
 import AccidentMap from '../../components/AccidentMap';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import NTSBData from '../../assets/data/accident_causes.json';
+
+function NTSBFindingsChart() {
+  return (
+    <ResponsiveContainer width="100%" height={1000}>
+      <BarChart layout="vertical" data={NTSBData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis type="number" />
+        <YAxis 
+          dataKey="ReportText" 
+          type="category" 
+          width={500} 
+          interval={0}
+          tick={props => (
+            <text 
+              x={props.x} 
+              y={props.y} 
+              dy={3}
+              textAnchor="end" 
+              fill={props.fill}
+              fontSize={16}
+            >
+              {props.payload.value}
+            </text>
+          )}
+        />
+        <Bar dataKey="count" fill="#8884d8" />
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
 
 const GliderAviationSafety = () => {
   //meta title
@@ -33,7 +66,7 @@ const GliderAviationSafety = () => {
           </Row>
           <img
             className="w-100 mb-100"
-            src={BlogPost1}
+            src={Glider1}
             alt=""
             data-show-duration="800"
           />
@@ -76,7 +109,14 @@ const GliderAviationSafety = () => {
                   </span>
                   </a>
                </p>
-              <h3>Methods</h3>
+               <p className="lead fw-medium">
+                  In the United States, from 1983 to June 2023, there were 701 accidents involving gliders that resulted in some type of injury. Of those, 225 were fatal, 
+                  268 resulted in serious injury, and 208 resulted in minor injuries.
+              </p> 
+              <AccidentMap />
+              <h3 className='mt-10'>Top causes according to the NTSB</h3>
+              <NTSBFindingsChart />
+              <h3 className='mt-10'>Methods</h3>
               <p>
                   <ul>
                     <li><strong>Data Loading and Preprocessing</strong>: The data was loaded from JSON and CSV files and preprocessed to clean and format it for analysis.</li>
@@ -88,7 +128,6 @@ const GliderAviationSafety = () => {
               </p>
             </Col>
           </Row>
-          <AccidentMap />
           <Row className="justify-content-center gh-1 mb-100">
             <Col lg={8} className="post-content">
               <h3>Moving void, let fill in midst open.</h3>
