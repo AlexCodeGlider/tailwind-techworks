@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Blog1 from "../../assets/images/blog/blog-1.jpg";
 import Blog2 from "../../assets/images/blog/blog-2.jpg";
 import Blog3 from "../../assets/images/blog/blog-3.jpg";
-import BlogPost1 from "../../assets/images/blog/blog-post-1.jpg";
 import Glider1 from "../../assets/images/blog/glider-1.jpg";
 import BlogPost4 from "../../assets/images/blog/blog-post-4.jpg";
 import BlogPost5 from "../../assets/images/blog/blog-post-5.jpg";
@@ -15,6 +14,7 @@ import Navbar from "../../Layouts/CommonLayouts/Navbar3";
 import AccidentMap from '../../components/AccidentMap';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import NTSBData from '../../assets/data/accident_causes.json';
+import AccidentPhases from '../../assets/data/accident_phases.json';
 
 function NTSBFindingsChart() {
   return (
@@ -46,9 +46,45 @@ function NTSBFindingsChart() {
   );
 }
 
+function PhasesChart() {
+  return (
+    <ResponsiveContainer width="100%" height={600}>
+      <BarChart 
+        data={AccidentPhases}
+        margin={{ top: 20, right: 30, left: 20, bottom: 120 }} // Add some space at the bottom of the chart
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <YAxis type="number" />
+        <XAxis 
+          dataKey="phases" 
+          type="category" 
+          width={500} 
+          interval={0}
+          tick={props => (
+            <text 
+              x={props.x} 
+              y={props.y} 
+              dy={16} // Increase the dy value to adjust the distance between the tick and the axis
+              textAnchor="end" 
+              fill={props.fill}
+              fontSize={16}
+              fontWeight="bold" // Make the font bold
+              transform={`rotate(-45, ${props.x}, ${props.y})`} // Rotate the tick by 45 degrees
+            >
+              {props.payload.value}
+            </text>
+          )}
+        />
+        <Bar dataKey="count" fill="#8884d8" />
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
+
 const GliderAviationSafety = () => {
   //meta title
-  document.title = "TailWind techWorks | Glider Aviation Safety";
+  document.title = "TailWind TechWorks | Glider Aviation Safety";
   return (
     <React.Fragment>
       <Navbar navClass="sticky" />
@@ -116,7 +152,9 @@ const GliderAviationSafety = () => {
               <AccidentMap />
               <h3 className='mt-10'>Top causes according to the NTSB</h3>
               <NTSBFindingsChart />
-              <h3 className='mt-10'>Methods</h3>
+              <h3 className='mt-10'>Phases of Flight</h3>
+              <PhasesChart />
+              <h3 className='mt-40'>Methods</h3>
               <p>
                   <ul>
                     <li><strong>Data Loading and Preprocessing</strong>: The data was loaded from JSON and CSV files and preprocessed to clean and format it for analysis.</li>
@@ -127,7 +165,9 @@ const GliderAviationSafety = () => {
                   </ul>
               </p>
             </Col>
+           
           </Row>
+          
           <Row className="justify-content-center gh-1 mb-100">
             <Col lg={8} className="post-content">
               <h3>Moving void, let fill in midst open.</h3>
@@ -271,6 +311,7 @@ const GliderAviationSafety = () => {
               </Row>
             </Col>
           </Row>
+          
           <h2 className="text-center mt-130 pb-30 mb-60">Related posts</h2>
           <Row className="gh-1 gv-1 mb-n8">
             <Col md={6} lg={4} className="col-12" data-aos="fade-up">
