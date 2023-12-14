@@ -12,9 +12,10 @@ import BlogPost6 from "../../assets/images/blog/blog-post-6.jpg";
 import Footer from "../../Layouts/CommonLayouts/Footer2";
 import Navbar from "../../Layouts/CommonLayouts/Navbar3";
 import AccidentMap from '../../components/AccidentMap';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import NTSBData from '../../assets/data/accident_causes.json';
 import AccidentPhases from '../../assets/data/accident_phases.json';
+import AccidentEvents from '../../assets/data/accident_events.json';
 
 function NTSBFindingsChart() {
   return (
@@ -76,6 +77,82 @@ function PhasesChart() {
           )}
         />
         <Bar dataKey="count" fill="#8884d8" />
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
+//Group the data which has the following structure:
+// [
+//   {"injury_level":"Serious","event_cicttEventSOEGroup":"Loss of Control (Inflight)","count":34},
+  // {"injury_level":"Serious","event_cicttEventSOEGroup":"Abnormal Runway Contact","count":14},
+  // {"injury_level":"Serious","event_cicttEventSOEGroup":"Weather","count":7},{"injury_level":"Serious","event_cicttEventSOEGroup":"System\/Component Failure (Non-Powerplant)","count":5},{"injury_level":"Serious","event_cicttEventSOEGroup":"Midair","count":4},{"injury_level":"Serious","event_cicttEventSOEGroup":"Loss of Control (Ground)","count":3},{"injury_level":"Serious","event_cicttEventSOEGroup":"CFIT","count":2},{"injury_level":"Serious","event_cicttEventSOEGroup":"Runway Excursion","count":2},{"injury_level":"Serious","event_cicttEventSOEGroup":"Abrupt Maneuver","count":1},{"injury_level":"Serious","event_cicttEventSOEGroup":"Low Altitude","count":1},{"injury_level":"Serious","event_cicttEventSOEGroup":"Turbulence","count":1},{"injury_level":"Serious","event_cicttEventSOEGroup":"Undershoot\/Overshoot","count":1},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Loss of Control (Inflight)","count":57},{"injury_level":"Fatal","event_cicttEventSOEGroup":"System\/Component Failure (Non-Powerplant)","count":9},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Midair","count":8},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Abrupt Maneuver","count":5},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Low Altitude","count":3},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Weather","count":3},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Turbulence","count":2},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Abnormal Runway Contact","count":1},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Cabin Safety","count":1},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Ground Collision","count":1}, 
+// by event_cicttEventSOEGroup such that the resulting groupedData array has the following structure:
+// [
+//   {
+//     event_cicttEventSOEGroup: 'Loss of Control (Inflight)',
+//     Fatal: 24,
+//     Serious: 20,
+//   },
+//  { ... },
+
+// ]
+const groupedData = AccidentEvents.reduce((acc, curr) => {
+  const { event_cicttEventSOEGroup, injury_level, count } = curr;
+  const existingGroup = acc.find((item) => item.event_cicttEventSOEGroup === event_cicttEventSOEGroup);
+  if (existingGroup) {
+    existingGroup[injury_level] = count;
+  } else {
+    acc.push({
+      event_cicttEventSOEGroup,
+      [injury_level]: count,
+    });
+  }
+  return acc;
+}, []);
+
+//console.log(groupedData);
+
+function EventsChart() {
+  return (
+    <ResponsiveContainer width="100%" height={700}>
+      <BarChart
+        width={500}
+        height={300}
+        data={groupedData}
+        margin={{
+          top: 20,
+          right: 30,
+          left: 100,
+          bottom: 300,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis
+          dataKey="event_cicttEventSOEGroup"
+          type="category"
+          width={500}
+          interval={0}
+          tick={props => (
+            <text
+              x={props.x}
+              y={props.y}
+              dy={16} // Increase the dy value to adjust the distance between the tick and the axis
+              textAnchor="end"
+              fill={props.fill}
+              fontSize={14}
+              fontWeight="bold" // Make the font bold
+              transform={`rotate(-45, ${props.x}, ${props.y})`} // Rotate the tick by 45 degrees
+            >
+              {props.payload.value}
+            </text>
+          )}
+        />
+        <YAxis orientation="left" stroke="#8884d8" />
+        <Tooltip />
+        <Legend verticalAlign="top" wrapperStyle={{ lineHeight: '40px' }} />
+        <Bar dataKey="Fatal" fill="#8884d8" barSize={30} />
+        <Bar dataKey="Serious" fill="#82ca9d" barSize={30} />
       </BarChart>
     </ResponsiveContainer>
   );
@@ -154,6 +231,12 @@ const GliderAviationSafety = () => {
               <NTSBFindingsChart />
               <h3 className='mt-10'>Phases of Flight</h3>
               <PhasesChart />
+              <h3 className='mt-10'>Events</h3>
+              </Col>
+              <Col lg={12} className="post-content">
+              <EventsChart />
+              </Col>
+              <Col lg={8} className="post-content">
               <h3 className='mt-40'>Methods</h3>
               <p>
                   <ul>
