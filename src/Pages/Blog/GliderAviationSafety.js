@@ -12,11 +12,12 @@ import BlogPost6 from "../../assets/images/blog/blog-post-6.jpg";
 import Footer from "../../Layouts/CommonLayouts/Footer2";
 import Navbar from "../../Layouts/CommonLayouts/Navbar3";
 import AccidentMap from '../../components/AccidentMap';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
 import NTSBData from '../../assets/data/accident_causes.json';
 import AccidentPhases from '../../assets/data/accident_phases.json';
 import AccidentEvents from '../../assets/data/accident_events.json';
 import AccidentCausesWordCount from '../../assets/data/accident_causes_word_count.json';
+import AccidentsByYear from '../../assets/data/accident_year_injury_counts.json';
 
 function NTSBFindingsChart() {
   return (
@@ -243,6 +244,53 @@ function AccidentCausesWordCountChart() {
   );
 }
 
+function AccidentsByYearChart() {
+  return (
+    <ResponsiveContainer width="100%" height={700}>
+      <LineChart
+        width={500}
+        height={300}
+        data={AccidentsByYear}
+        margin={{
+          top: 20,
+          right: 30,
+          left: 30,
+          bottom: 300,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis
+          dataKey="year"
+          type="category"
+          width={500}
+          interval={0}
+          tick={props => (
+            <text
+              x={props.x}
+              y={props.y}
+              dy={16} // Increase the dy value to adjust the distance between the tick and the axis
+              textAnchor="end"
+              fill={props.fill}
+              fontSize={14}
+              fontWeight="bold" // Make the font bold
+              transform={`rotate(-45, ${props.x}, ${props.y})`} // Rotate the tick by 45 degrees
+            >
+              {props.payload.value}
+            </text>
+          )}
+        />
+        <YAxis orientation="left" stroke="#8884d8" />
+        <Tooltip />
+        <Legend verticalAlign="top" wrapperStyle={{ lineHeight: '40px' }} />
+        <Line type="monotone" dataKey="Fatal" stroke="#FF0000" />
+        <Line type="monotone" dataKey="Serious" stroke="#8884d8" />
+        <Line type="monotone" dataKey="Minor" stroke="#82ca9d" />
+      </LineChart>
+    </ResponsiveContainer>
+  );
+}
+
+
 const GliderAviationSafety = () => {
   //meta title
   document.title = "TailWind TechWorks | Glider Aviation Safety";
@@ -325,6 +373,10 @@ const GliderAviationSafety = () => {
               <Col lg={12} className="post-content">
               <h3 className='mt-10'>Top 20 keywords in causes</h3>
               <AccidentCausesWordCountChart />
+              </Col>
+              <Col lg={12} className="post-content">
+              <h3 className='mt-10'>Accidents by Year</h3>
+              <AccidentsByYearChart />
               </Col>
 
 
