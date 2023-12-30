@@ -47,28 +47,70 @@ function NTSBFindingsChart() {
   );
 }
 
+console.log(AccidentPhases);
+
+//Group the AccidentPhases data which has the following structure:
+// [
+//   {"injury_level":"Serious","event_cicttPhaseSOEGroup":"Landing","count":34},
+  // {"injury_level":"Serious","event_cicttPhaseSOEGroup":"Take Off","count":14},
+  // {"injury_level":"Serious","event_cicttPhaseSOEGroup":"In-Flight","count":7},{"injury_level":"Serious","event_cicttPhaseSOEGroup":"System\/Component Failure (Non-Powerplant)","count":5},{"injury_level":"Serious","event_cicttEventSOEGroup":"Midair","count":4},{"injury_level":"Serious","event_cicttEventSOEGroup":"Loss of Control (Ground)","count":3},{"injury_level":"Serious","event_cicttEventSOEGroup":"CFIT","count":2},{"injury_level":"Serious","event_cicttEventSOEGroup":"Runway Excursion","count":2},{"injury_level":"Serious","event_cicttEventSOEGroup":"Abrupt Maneuver","count":1},{"injury_level":"Serious","event_cicttEventSOEGroup":"Low Altitude","count":1},{"injury_level":"Serious","event_cicttEventSOEGroup":"Turbulence","count":1},{"injury_level":"Serious","event_cicttEventSOEGroup":"Undershoot\/Overshoot","count":1},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Loss of Control (Inflight)","count":57},{"injury_level":"Fatal","event_cicttEventSOEGroup":"System\/Component Failure (Non-Powerplant)","count":9},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Midair","count":8},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Abrupt Maneuver","count":5},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Low Altitude","count":3},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Weather","count":3},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Turbulence","count":2},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Abnormal Runway Contact","count":1},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Cabin Safety","count":1},{"injury_level":"Fatal","event_cicttEventSOEGroup":"Ground Collision","count":1}, 
+// by event_cicttPhaseSOEGroup such that the resulting groupedData array has the following structure:
+// [
+//   {
+//     event_cicttPhaseSOEGroup: 'Landing',
+//     Fatal: 24,
+//     Serious: 20,
+//     Minor: 10,
+//   },
+//  { ... },
+
+// ]
+
+const groupedData2 = AccidentPhases.reduce((acc, curr) => {
+  const { event_cicttPhaseSOEGroup, injury_level, count } = curr;
+  const existingGroup = acc.find((item) => item.event_cicttPhaseSOEGroup === event_cicttPhaseSOEGroup);
+  if (existingGroup) {
+    existingGroup[injury_level] = count;
+  } else {
+    acc.push({
+      event_cicttPhaseSOEGroup,
+      [injury_level]: count,
+    });
+  }
+  return acc;
+}, []);
+
+
+
 function PhasesChart() {
   return (
-    <ResponsiveContainer width="100%" height={600}>
-      <BarChart 
-        data={AccidentPhases}
-        margin={{ top: 20, right: 30, left: 20, bottom: 120 }} // Add some space at the bottom of the chart
+    <ResponsiveContainer width="100%" height={700}>
+      <BarChart
+        width={500}
+        height={300}
+        data={groupedData2}
+        margin={{
+          top: 20,
+          right: 30,
+          left: 100,
+          bottom: 300,
+        }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <YAxis type="number" />
-        <XAxis 
-          dataKey="phases" 
-          type="category" 
-          width={500} 
+        <XAxis
+          dataKey="event_cicttPhaseSOEGroup"
+          type="category"
+          width={500}
           interval={0}
           tick={props => (
-            <text 
-              x={props.x} 
-              y={props.y} 
+            <text
+              x={props.x}
+              y={props.y}
               dy={16} // Increase the dy value to adjust the distance between the tick and the axis
-              textAnchor="end" 
+              textAnchor="end"
               fill={props.fill}
-              fontSize={16}
+              fontSize={14}
               fontWeight="bold" // Make the font bold
               transform={`rotate(-45, ${props.x}, ${props.y})`} // Rotate the tick by 45 degrees
             >
@@ -76,7 +118,11 @@ function PhasesChart() {
             </text>
           )}
         />
-        <Bar dataKey="count" fill="#8884d8" />
+        <Tooltip />
+        <Legend verticalAlign="top" wrapperStyle={{ lineHeight: '40px' }} />
+        <Bar dataKey="Fatal" fill="#FF0000" barSize={30} />
+        <Bar dataKey="Serious" fill="#8884d8"barSize={30} />
+        <Bar dataKey="Minor" fill="#82ca9d" barSize={30} />
       </BarChart>
     </ResponsiveContainer>
   );
@@ -97,6 +143,7 @@ function PhasesChart() {
 //  { ... },
 
 // ]
+
 const groupedData = AccidentEvents.reduce((acc, curr) => {
   const { event_cicttEventSOEGroup, injury_level, count } = curr;
   const existingGroup = acc.find((item) => item.event_cicttEventSOEGroup === event_cicttEventSOEGroup);
@@ -151,8 +198,8 @@ function EventsChart() {
         <YAxis orientation="left" stroke="#8884d8" />
         <Tooltip />
         <Legend verticalAlign="top" wrapperStyle={{ lineHeight: '40px' }} />
-        <Bar dataKey="Fatal" fill="#8884d8" barSize={30} />
-        <Bar dataKey="Serious" fill="#82ca9d" barSize={30} />
+        <Bar dataKey="Fatal" fill="#FF0000" barSize={30} />
+        <Bar dataKey="Serious" fill="#8884d8" barSize={30} />
       </BarChart>
     </ResponsiveContainer>
   );
@@ -173,7 +220,7 @@ const GliderAviationSafety = () => {
                 Aviation
               </div>
               <h1 className="h2 mb-n10" data-aos="fade-up">
-                Exploring Glider Aviation Safety from a Data Science Perspective
+                Exploring NTSB Glider Aviation Safety Data
               </h1>
             </Col>
           </Row>
@@ -186,10 +233,10 @@ const GliderAviationSafety = () => {
           <Row className="justify-content-center gh-1 mb-100">
             <Col lg={8} className="post-content">
               <p className="lead fw-medium">
-                In the world of aviation, gliders offer a unique and exhilarating 
-                experience. However, like any form of flying, safety is paramount. 
+                In the world of general aviation, gliders offer an experience like no other. 
+                However, like any form of flying, safety is paramount. 
                 This blog post delves into a detailed analysis of glider aviation 
-                safety from the Data Science perspective, examining accident rates 
+                safety data, examining accident rates 
                 and exploring recommendations to 
                 enhance safety in the glider pilot community.
               </p>
@@ -229,11 +276,15 @@ const GliderAviationSafety = () => {
               <AccidentMap />
               <h3 className='mt-10'>Top causes according to the NTSB</h3>
               <NTSBFindingsChart />
-              <h3 className='mt-10'>Phases of Flight</h3>
-              <PhasesChart />
-              <h3 className='mt-10'>Events</h3>
               </Col>
               <Col lg={12} className="post-content">
+              <h3 className='mt-10'>Phases of Flight</h3>
+              <PhasesChart />
+              </Col>
+              
+              
+              <Col lg={12} className="post-content">
+              <h3 className='mt-10'>Events</h3>
               <EventsChart />
               </Col>
               <Col lg={8} className="post-content">
@@ -250,6 +301,10 @@ const GliderAviationSafety = () => {
             </Col>
            
           </Row>
+          
+
+
+
           
           <Row className="justify-content-center gh-1 mb-100">
             <Col lg={8} className="post-content">
