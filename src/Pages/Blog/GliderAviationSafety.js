@@ -444,10 +444,6 @@ const GliderAviationSafety = () => {
               
               <TopicsChart />
               </Col>
-
-
-
-
               <Col lg={8} className="post-content">
               <h3 className='mt-40'>Methods</h3>
               <p>
@@ -459,37 +455,25 @@ const GliderAviationSafety = () => {
                     <li><strong>Topic Modeling</strong>: The preprocessed text was used to perform Topic Modeling using Non-negative Matrix Factorization (NMF) and Latent Dirichlet Allocation (LDA) to identify the common themes or issues in the accident narratives.</li>
                   </ul>
               </p>
-            </Col>
-           
+            </Col>           
           </Row>
-          
-
-
-
-          
           <Row className="justify-content-center gh-1 mb-100">
             <Col lg={8} className="post-content">
-              <h3>Moving void, let fill in midst open.</h3>
+              <h3>Recommendations for Improving Glider Pilot Community Safety</h3>
               <p>
-                Male under yielding whose his appear sea green. Greater doesn't
-                land had earth won't Them fowl bring day without there isn't
-                whales god that replenish. Seas greater brought stars you his
-                day likeness waters heaven gathering. Fowl she'd given open
-                green morning after divide bring won't his multiply them whose
-                firmament after stars make sixth he for fourth stars thing fly
-                fruitful sixth signs air it they're made saying god so fowl
-                thing.
-              </p>
-              <h4>Own whose male beginning thing?</h4>
-              <p>
-                Male under yielding whose his appear sea green. Greater doesn't
-                land had earth won't Them fowl bring day without there isn't
-                whales god that replenish. Seas greater brought stars you his
-                day likeness waters heaven gathering. Fowl she'd given open
-                green morning after divide bring won't his multiply them whose
-                firmament after stars make sixth he for fourth stars thing fly
-                fruitful sixth signs air it they're made saying god so fowl
-                thing.
+                <ul
+                  className="list-unstyled"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <li><strong>Enhanced Training on Atmospheric Conditions:</strong> Pilots should receive more rigorous training in understanding and reacting to various atmospheric conditions, especially those affecting lift.</li>
+                  <li><strong>Decision-Making and Emergency Procedures:</strong> Emphasize training on timely decision-making, especially regarding landing decisions when conditions change unexpectedly.</li>
+                  <li><strong>Focus on Landing Safety:</strong> Given the high number of incidents during landing, special focus should be given to training for safe landing techniques under various conditions.</li>
+                  <li><strong>Regular Safety Briefings and Workshops:</strong> Organize frequent safety briefings and workshops focusing on the common causes of accidents and their prevention.</li>
+                  <li><strong>Incident Analysis and Learning:</strong> Encourage a culture of learning from past incidents, where pilots can share experiences and lessons learned.</li>
+                  <li><strong>Use of Technology and Weather Forecasting Tools:</strong> Encourage the use of advanced weather forecasting tools and technology to better prepare for and respond to atmospheric changes during flight.</li>
+                  <li><strong>Mentorship and Peer Review:</strong> Encourage experienced pilots to mentor less experienced ones, and promote peer review and discussions about flight plans and decisions.</li>
+                </ul>
               </p>
             </Col>
           </Row>
@@ -541,8 +525,9 @@ const GliderAviationSafety = () => {
                 />
               </svg>
               <blockquote className="mt-6 mb-100">
-                Whales fly cattle all, us saw given moveth rule very thing from
-                him. Fruitful female unto every dominion two all.
+                <p className="lead">
+                  Share the skies with safety in mind. Fly safe, fly smart, and fly often.
+                </p>
               </blockquote>
             </Col>
             <Col lg={8} className="col-12">
