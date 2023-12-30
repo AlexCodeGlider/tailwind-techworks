@@ -18,6 +18,7 @@ import AccidentPhases from '../../assets/data/accident_phases.json';
 import AccidentEvents from '../../assets/data/accident_events.json';
 import AccidentCausesWordCount from '../../assets/data/accident_causes_word_count.json';
 import AccidentsByYear from '../../assets/data/accident_year_injury_counts.json';
+import AccidentTopics from '../../assets/data/accident_topics.json';
 
 function NTSBFindingsChart() {
   return (
@@ -290,6 +291,52 @@ function AccidentsByYearChart() {
   );
 }
 
+function TopicsChart() {
+  return (
+    <ResponsiveContainer width="100%" height={700}>
+      <BarChart
+        width={500}
+        height={300}
+        data={AccidentTopics}
+        margin={{
+          top: 20,
+          right: 30,
+          left: 100,
+          bottom: 300,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis
+          dataKey="topic"
+          type="category"
+          width={500}
+          interval={0}
+          tick={props => (
+            <text
+              x={props.x}
+              y={props.y}
+              dy={16} // Increase the dy value to adjust the distance between the tick and the axis
+              textAnchor="end"
+              fill={props.fill}
+              fontSize={14}
+              fontWeight="bold" // Make the font bold
+              transform={`rotate(-45, ${props.x}, ${props.y})`} // Rotate the tick by 45 degrees
+            >
+              {props.payload.value}
+            </text>
+          )}
+        />
+        <YAxis orientation="left" stroke="#8884d8" />
+        <Tooltip />
+        <Legend verticalAlign="top" wrapperStyle={{ lineHeight: '40px' }} />
+        <Bar dataKey="Fatal" fill="#FF0000" barSize={30} />
+        <Bar dataKey="Serious" fill="#8884d8"barSize={30} />
+        <Bar dataKey="Minor" fill="#82ca9d" barSize={30} />
+
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
 
 const GliderAviationSafety = () => {
   //meta title
@@ -377,6 +424,25 @@ const GliderAviationSafety = () => {
               <Col lg={12} className="post-content">
               <h3 className='mt-10'>Accidents by Year</h3>
               <AccidentsByYearChart />
+              </Col>
+              <Col lg={12} className="post-content">
+              <h3 className='mt-10'>Topic Modelling</h3>
+              <p className="lead fw-medium">
+              An analysis using Non-Negative Matrix Factorization (NMF) on the narrative descriptions of glider 
+              accidents reveals five distinct topics, each characterized by a set of key words. These topics 
+              provide insights into different aspects and causes of the accidents:
+              </p>
+              <p>
+              <ul>
+                <li><strong>Topic 1 - Airport and Landing:</strong> Key words like 'airport', 'field', 'glider', 'landing', and 'lift' suggest this topic is related to accidents occurring near or at the airport, possibly during landing phases. The mention of 'lift' and 'feet' might indicate issues with altitude or lift management during final approach.</li>
+                <li><strong>Topic 2 - Pilot Actions and Aircraft Conditions:</strong> Words like 'plt' (pilot), 'amp', 'acft' (aircraft), 'rwy' (runway), and 'flt' (flight) indicate a focus on the pilot's actions and the condition of the aircraft. This could include pilot decision-making, handling of the aircraft, and runway operations.</li>
+                <li><strong>Topic 3 - Tow Plane and Takeoff Operations:</strong> This topic, with words such as 'tow', 'glider', 'plane', 'takeoff', and 'pilot', is likely related to the initial phase of glider flights where the glider is towed by another plane. Incidents during takeoff or involving the tow rope are suggested by 'released', 'rope', and 'ground'.</li>
+                <li><strong>Topic 4 - Mechanical and Operational Failures:</strong> The presence of words like 'x0d', 'reported', 'precluded', 'normal operation', 'malfunctions', and 'failures' indicates discussions about mechanical issues or operational failures in gliders. This topic might capture accidents where a mechanical fault or operational issue was a contributing factor.</li>
+                <li><strong>Topic 5 - Training and Flight Patterns:</strong> This topic includes words like 'runway', 'glider', 'student', 'pilot', 'instructor', 'approach', 'final', 'flight', 'pattern', and 'aircraft'. It seems to be related to training flights or learning scenarios, including approach patterns and instruction.</li>
+              </ul>
+              </p>
+              
+              <TopicsChart />
               </Col>
 
 
