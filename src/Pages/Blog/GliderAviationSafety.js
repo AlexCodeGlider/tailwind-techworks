@@ -16,6 +16,7 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 import NTSBData from '../../assets/data/accident_causes.json';
 import AccidentPhases from '../../assets/data/accident_phases.json';
 import AccidentEvents from '../../assets/data/accident_events.json';
+import AccidentCausesWordCount from '../../assets/data/accident_causes_word_count.json';
 
 function NTSBFindingsChart() {
   return (
@@ -47,7 +48,7 @@ function NTSBFindingsChart() {
   );
 }
 
-console.log(AccidentPhases);
+// console.log(AccidentPhases);
 
 //Group the AccidentPhases data which has the following structure:
 // [
@@ -79,8 +80,6 @@ const groupedData2 = AccidentPhases.reduce((acc, curr) => {
   }
   return acc;
 }, []);
-
-
 
 function PhasesChart() {
   return (
@@ -205,6 +204,44 @@ function EventsChart() {
   );
 }
 
+// Create a horizontal barchart of the top 20 words in the accident causes narratives
+// The data has the following structure:
+// [
+//   {"word":"pilot","count":34},
+//   {"word":"aircraft","count":14},  
+//   {"word":"flight","count":7},
+
+// ]
+
+function AccidentCausesWordCountChart() {
+  return (
+    <ResponsiveContainer width="100%" height={1000}>
+      <BarChart layout="vertical" data={AccidentCausesWordCount}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis type="number" />
+        <YAxis 
+          dataKey="word" 
+          type="category" 
+          width={500} 
+          interval={0}
+          tick={props => (
+            <text 
+              x={props.x} 
+              y={props.y} 
+              dy={3}
+              textAnchor="end" 
+              fill={props.fill}
+              fontSize={20}
+            >
+              {props.payload.value}
+            </text>
+          )}
+        />
+        <Bar dataKey="count" fill="#8884d8" />
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
 
 const GliderAviationSafety = () => {
   //meta title
@@ -281,12 +318,18 @@ const GliderAviationSafety = () => {
               <h3 className='mt-10'>Phases of Flight</h3>
               <PhasesChart />
               </Col>
-              
-              
               <Col lg={12} className="post-content">
               <h3 className='mt-10'>Events</h3>
               <EventsChart />
               </Col>
+              <Col lg={12} className="post-content">
+              <h3 className='mt-10'>Top 20 keywords in causes</h3>
+              <AccidentCausesWordCountChart />
+              </Col>
+
+
+
+
               <Col lg={8} className="post-content">
               <h3 className='mt-40'>Methods</h3>
               <p>
