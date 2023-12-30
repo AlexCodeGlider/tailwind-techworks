@@ -6,9 +6,9 @@ import Blog1 from "../../assets/images/blog/blog-1.jpg";
 import Blog2 from "../../assets/images/blog/blog-2.jpg";
 import Blog3 from "../../assets/images/blog/blog-3.jpg";
 import Glider1 from "../../assets/images/blog/glider-1.jpg";
-import BlogPost4 from "../../assets/images/blog/blog-post-4.jpg";
-import BlogPost5 from "../../assets/images/blog/blog-post-5.jpg";
-import BlogPost6 from "../../assets/images/blog/blog-post-6.jpg";
+import BlogPost4 from "../../assets/images/blog/photorealistic_glider.png";
+import BlogPost5 from "../../assets/images/blog/glider_soaring.png";
+import BlogPost6 from "../../assets/images/blog/dessert_glider.png";
 import Footer from "../../Layouts/CommonLayouts/Footer2";
 import Navbar from "../../Layouts/CommonLayouts/Navbar3";
 import AccidentMap from '../../components/AccidentMap';
@@ -535,9 +535,9 @@ const GliderAviationSafety = () => {
               <Row className="gh-2 gv-1 justify-content-between">
                 <Col className="col-auto">
                   <span className="fw-medium me-8">Tags:</span>{" "}
-                  <Link to="/#">company</Link>,{" "}
-                  <Link to="/#">design</Link>,{" "}
-                  <Link to="/#">travel</Link>
+                  <Link to="/#">aviation</Link>,{" "}
+                  <Link to="/#">glider</Link>,{" "}
+                  <Link to="/#">safety</Link>
                 </Col>
                 <Col className="col-auto">
                   <span className="fw-medium">Share:</span>
