@@ -352,7 +352,7 @@ const GliderAviationSafety = () => {
                 Aviation
               </div>
               <h1 className="h2 mb-n10" data-aos="fade-up">
-                Exploring NTSB Glider Aviation Safety Data
+                Exploring Glider Aviation Safety from National Transportation Safety Board (NTSB) Data
               </h1>
             </Col>
           </Row>
@@ -410,11 +410,11 @@ const GliderAviationSafety = () => {
               <NTSBFindingsChart />
               </Col>
               <Col lg={12} className="post-content">
-              <h3 className='mt-10'>Phases of Flight</h3>
+              <h3 className='mt-10'>Phases of Flight where accidents occur</h3>
               <PhasesChart />
               </Col>
               <Col lg={12} className="post-content">
-              <h3 className='mt-10'>Events</h3>
+              <h3 className='mt-10'>Accident Events</h3>
               <EventsChart />
               </Col>
               <Col lg={12} className="post-content">
