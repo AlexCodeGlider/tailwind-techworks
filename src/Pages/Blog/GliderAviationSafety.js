@@ -352,7 +352,7 @@ const GliderAviationSafety = () => {
                 Aviation
               </div>
               <h1 className="h2 mb-n10" data-aos="fade-up">
-                Exploring Glider Aviation Safety from National Transportation Safety Board (NTSB) Data
+                Exploring Glider Aviation Safety with data from the National Transportation Safety Board (NTSB)
               </h1>
             </Col>
           </Row>
